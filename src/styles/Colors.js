@@ -1,0 +1,17 @@
+export const Color = {
+  primary: '#008AD8',
+  // primaryDark: '#154a44',
+  // primaryLight: '#31ae91',
+  // secondary: '#7C00C8',
+  tertiary: '#F01A73',
+  white: '#fff',
+  black: '#000',
+  blackish: '#2E2E2E',
+  grey: '#a9a9a9',
+  lightgrey: '#FAFAFA',
+  timerRed: '#BB4A4C',
+  lightPrimary: '#e8f1f0',
+  red: 'red',
+  green: '#4fb553',
+  blackOpacity: 'rgba(0, 0, 0, 0.5)',
+};
