@@ -4,13 +4,18 @@ import styles from './styles';
 import {Dropdown} from 'react-native-element-dropdown';
 import AntDesign from 'react-native-vector-icons/AntDesign';
 
-const SelectOptons = ({
-  label,
-  optionData,
-  selectedOption,
-  setSelectedOption,
-}) => {
+const SelectOptons = ({label, optionData, setSelectedOption}) => {
+  const [value, setValue] = useState(null);
   const [isFocus, setIsFocus] = useState(false);
+
+  const handleFocus = () => {
+    setIsFocus(true);
+  };
+
+  const handleBlur = () => {
+    setIsFocus(false);
+  };
+
   return (
     <View style={styles.container}>
       <Text style={styles.label}>{label}</Text>
@@ -23,15 +28,16 @@ const SelectOptons = ({
         data={optionData}
         search
         maxHeight={300}
-        labelField="label"
-        valueField="value"
+        labelField="name"
+        valueField="id"
         placeholder={!isFocus ? 'Select item' : '...'}
         searchPlaceholder="Search..."
-        value={selectedOption}
-        onFocus={() => setIsFocus(true)}
-        onBlur={() => setIsFocus(false)}
+        value={value}
+        onFocus={handleFocus}
+        onBlur={handleBlur}
         onChange={item => {
-          setSelectedOption(item.value);
+          setValue(item.id);
+          setSelectedOption(item);
           setIsFocus(false);
         }}
         renderRightIcon={() => (

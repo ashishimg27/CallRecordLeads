@@ -1,6 +1,9 @@
 import {StyleSheet} from 'react-native';
 import {Color} from '../../styles/Colors';
 export default StyleSheet.create({
+  loadingStyle: {
+    marginTop: 30,
+  },
   mainContainer: {
     margin: 5,
     marginHorizontal: 10,
@@ -11,7 +14,7 @@ export default StyleSheet.create({
     justifyContent: 'space-between',
   },
   topHeading: {
-    color: Color.primary,
+    color: '#FA8661',
     fontSize: 18,
     fontWeight: '500',
   },
@@ -25,12 +28,18 @@ export default StyleSheet.create({
   },
   callLogs__container: {
     marginTop: 10,
+    // backgroundColor: 'red',
   },
   callDetail__container: {
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'space-between',
     marginVertical: 5,
+    backgroundColor: 'white',
+    paddingHorizontal: 10,
+    paddingVertical: 10,
+    borderRadius: 8,
+    elevation: 3,
   },
   callerDetail__container: {
     flexDirection: 'row',
@@ -38,6 +47,12 @@ export default StyleSheet.create({
   },
   callerName_phone: {
     marginLeft: 10,
+  },
+  CallerName: {
+    color: 'black',
+    fontWeight: '500',
+    fontSize: 20,
+    marginBottom: 5,
   },
   typeLabel: {
     alignItems: 'center',

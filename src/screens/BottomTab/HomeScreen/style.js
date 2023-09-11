@@ -1,31 +1,38 @@
-import {StyleSheet} from 'react-native';
+import {Dimensions, StyleSheet} from 'react-native';
 import {Color} from '../../../styles/Colors';
 
+const {height, width} = Dimensions.get('screen');
 export default StyleSheet.create({
   container: {
-    padding: 10,
+    // padding: 10,
     backgroundColor: 'white',
   },
+  loadingStyle: {height: height, backgroundColor: 'white'},
   heading__container: {
     marginVertical: 20,
   },
   heading: {
     fontSize: 26,
     fontWeight: '600',
-    color: Color.primary,
+    color: Color.white,
   },
   user__container: {
     marginBottom: 10,
   },
   userName: {
     fontSize: 20,
-    color: Color.black,
+    color: Color.white,
   },
   greetText: {
-    color: Color.black,
+    color: '#FFFFF7',
   },
   body__container: {
-    marginVertical: 20,
+    marginTop: 20,
+    backgroundColor: 'white',
+    padding: 10,
+    borderTopRightRadius: 40,
+    borderTopLeftRadius: 40,
+    alignItems: 'center',
   },
   body__heading: {
     fontSize: 28,

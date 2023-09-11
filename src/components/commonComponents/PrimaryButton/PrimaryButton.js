@@ -4,7 +4,7 @@ import styles from './styles';
 
 const PrimaryButton = ({btnLabel, btnHandle, customStyle}) => {
   return (
-    <View style={[styles.btn__container, {customStyle}]} onTouchEnd={btnHandle}>
+    <View style={[styles.btn__container, customStyle]} onTouchEnd={btnHandle}>
       <Text style={styles.btn__text}>{btnLabel}</Text>
     </View>
   );
