@@ -63,6 +63,7 @@ const LoginScreen = () => {
         await AsyncStorage.setItem('userData', JsonData);
       }
     } catch (error) {
+      setIsLoading(false);
       console.log(error.data, '>>>>>>>>>> Login Error');
       Alert.alert('Alert!', 'This is an Invalid API Key', [
         {text: 'OK', onPress: () => onChangeText('')},
