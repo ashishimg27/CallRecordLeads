@@ -14,6 +14,7 @@ import FontAwesome6 from 'react-native-vector-icons/FontAwesome6';
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
 import EvilIcons from 'react-native-vector-icons/EvilIcons';
 import {useNavigation} from '@react-navigation/native';
+import font from '../assests/Fonts';
 
 const tabData = [
   {title: 'Today', id: '1'},
@@ -43,7 +44,7 @@ const callData = [
 ];
 const Home = () => {
   const [selectedTab, setSelectedTab] = useState('Today');
-  const navigation = useNavigation();
+  // const navigation = useNavigation();
   return (
     <View style={styles.container}>
       <ScrollView>
@@ -58,21 +59,21 @@ const Home = () => {
           />
           <View style={styles.headerTop__container}>
             <Text style={styles.logo}>RUNO</Text>
-            <View style={styles.headerTopLeft__container}>
+            {/* <View style={styles.headerTopLeft__container}>
               <Fontisto name="arrow-swap" size={20} color={'white'} />
               <Ionicons name="people" size={20} color={'white'} />
-            </View>
+            </View> */}
           </View>
           <View style={styles.profileMain__container}>
             <View style={styles.profile__container}>
               <Text style={styles.profileName}>Rutakshi Technologies</Text>
               <Text style={styles.subProfile}>Vamsi</Text>
-              <View style={styles.callingType__container}>
+              {/* <View style={styles.callingType__container}>
                 <View style={styles.callingTypeIcon__container}>
                   <Fontisto name="arrow-swap" size={12} color={'white'} />
                 </View>
                 <Text style={styles.callingType__text}>Calling process</Text>
-              </View>
+              </View> */}
             </View>
             <View style={styles.profileRightIcons__container}>
               <MaterialCommunityIcons
@@ -80,7 +81,7 @@ const Home = () => {
                 size={25}
                 color={'white'}
               />
-              <View onTouchEnd={() => navigation.navigate('RenoDemo')}>
+              <View>
                 <FontAwesome6 name="power-off" size={25} color={'white'} />
               </View>
             </View>
@@ -123,7 +124,7 @@ const Home = () => {
           </ScrollView>
           <View style={styles.Inbond__container}>
             <View style={styles.inboundHeadingIcon__container}>
-              <Text style={styles.inbound__text}>INBOND</Text>
+              <Text style={styles.inbound__text}>INBOUND</Text>
               <MaterialCommunityIcons
                 name="arrow-right"
                 size={25}
@@ -138,11 +139,17 @@ const Home = () => {
                 <View style={styles.inbondBox__container} key={id}>
                   <MaterialCommunityIcons
                     name={el.iconName}
-                    size={20}
+                    size={22}
                     color={'#FA8661'}
                   />
                   <Text style={styles.boxCount}>{el.count}</Text>
-                  <Text style={styles.boxCallType}>{el.callType}</Text>
+                  <View
+                    style={{
+                      height: 30,
+                      justifyContent: 'center',
+                    }}>
+                    <Text style={styles.boxCallType}>{el.callType}</Text>
+                  </View>
                 </View>
               ))}
             </ScrollView>
@@ -152,11 +159,19 @@ const Home = () => {
               <View key={ind}>
                 <View style={styles.callTime__subContainer}>
                   <Text
-                    style={{fontSize: 18, color: 'black', fontWeight: '400'}}>
+                    style={{
+                      fontSize: 16,
+                      color: '#2E2E2E',
+                      fontFamily: font.Light,
+                    }}>
                     {item.title}
                   </Text>
                   <Text
-                    style={{fontSize: 18, color: 'black', fontWeight: '400'}}>
+                    style={{
+                      fontSize: 18,
+                      color: '#2E2E2E',
+                      fontFamily: font.Light,
+                    }}>
                     {item.duration}
                   </Text>
                 </View>
@@ -166,6 +181,36 @@ const Home = () => {
               </View>
             ))}
           </View>
+          <View style={{marginTop: 10}} />
+          <View style={styles.callTime__container}>
+            {callData.map((item, ind) => (
+              <View key={ind}>
+                <View style={styles.callTime__subContainer}>
+                  <Text
+                    style={{
+                      fontSize: 18,
+                      color: '#2E2E2E',
+
+                      fontFamily: font.Light,
+                    }}>
+                    {item.title}
+                  </Text>
+                  <Text
+                    style={{
+                      fontSize: 18,
+                      color: '#2E2E2E',
+                      fontFamily: font.Light,
+                    }}>
+                    {item.duration}
+                  </Text>
+                </View>
+                {ind < callData.length - 1 ? (
+                  <View style={{backgroundColor: 'lightgrey', height: 1}} />
+                ) : null}
+              </View>
+            ))}
+          </View>
+          <View style={{marginBottom: 70}} />
         </View>
       </ScrollView>
     </View>
@@ -194,6 +239,7 @@ const styles = StyleSheet.create({
   logo: {
     color: 'white',
     fontSize: 18,
+    fontFamily: font.Medium,
   },
   headerTopLeft__container: {
     flexDirection: 'row',
@@ -202,26 +248,28 @@ const styles = StyleSheet.create({
     width: '20%',
   },
   profileMain__container: {
-    marginTop: 20,
+    marginTop: 10,
     flexDirection: 'row',
     alignItems: 'center',
   },
   profile__container: {flex: 1},
   profileName: {
-    fontSize: 20,
+    fontSize: 16,
     color: 'white',
-    fontWeight: '500',
+    // fontWeight: '500',
+    fontFamily: font.Bold,
   },
   subProfile: {
     color: 'white',
     marginVertical: 5,
     fontSize: 18,
+    fontFamily: font.Medium,
   },
   callingType__container: {
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'space-between',
-    width: '55%',
+    width: '60%',
   },
   callingTypeIcon__container: {
     borderWidth: 1,
@@ -233,6 +281,7 @@ const styles = StyleSheet.create({
   callingType__text: {
     color: 'white',
     fontSize: 16,
+    fontFamily: font.Medium,
   },
   profileRightIcons__container: {
     width: '30%',
@@ -262,11 +311,13 @@ const styles = StyleSheet.create({
   },
 
   tabText: {
-    fontWeight: '500',
-    fontSize: 16,
+    // fontWeight: '500',
+    fontFamily: font.Light,
+    fontSize: 14,
     color: 'black',
   },
   selectedText: {
+    fontFamily: font.SemiBold,
     marginRight: 5,
     color: 'white',
   },
@@ -292,6 +343,8 @@ const styles = StyleSheet.create({
   },
   inbound__text: {
     fontSize: 18,
+    fontFamily: font.Light,
+    color: 'grey',
   },
   inboundTop__container: {
     flexDirection: 'row',
@@ -301,9 +354,9 @@ const styles = StyleSheet.create({
     backgroundColor: 'white',
     marginRight: 15,
     alignItems: 'center',
-    justifyContent: 'center',
-    width: width / 3.9,
-    height: height / 7.5,
+    justifyContent: 'space-between',
+    width: width / 3.6,
+    // height: height / 7.5,
     paddingVertical: 10,
     borderRadius: 5,
     elevation: 5,
@@ -313,11 +366,14 @@ const styles = StyleSheet.create({
   boxCount: {
     color: 'black',
     fontSize: 26,
-    fontWeight: '600',
+    fontWeight: '400',
     marginBottom: 10,
   },
   boxCallType: {
-    fontSize: 12,
+    fontSize: 10,
+    fontFamily: font.Light,
+
+    // alignItems: 'center',
   },
   callTime__container: {
     marginTop: 10,

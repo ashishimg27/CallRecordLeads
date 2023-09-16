@@ -6,6 +6,7 @@ import Feather from 'react-native-vector-icons/Feather';
 import AntDesign from 'react-native-vector-icons/AntDesign';
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
 import {useNavigation} from '@react-navigation/native';
+import font from '../assests/Fonts';
 export default function RenoDemo() {
   const data = [
     {
@@ -64,9 +65,81 @@ export default function RenoDemo() {
       iconName: 'cupcake',
       provider: 'MaterialCommunityIcons',
     },
+    {
+      name: 'Kumar',
+      status: 'Logged Out',
+      time: '10m 28s',
+      post: 'Territory Manager',
+      iconName: 'logout',
+      provider: 'AntDesign',
+    },
+    {
+      name: 'Kunal Bahl',
+      status: 'Hasn"t loggedin',
+      time: '',
+      post: 'Telecaller',
+      iconName: 'user',
+      provider: 'AntDesign',
+    },
+    {
+      name: 'Susheel, K',
+      status: 'Idle',
+      time: '13m 48s',
+      post: 'Sales Manager',
+      iconName: 'human-wheelchair',
+      provider: 'MaterialCommunityIcons',
+    },
+    {
+      name: 'Kumar',
+      status: 'Logged Out',
+      time: '10m 28s',
+      post: 'Territory Manager',
+      iconName: 'logout',
+      provider: 'AntDesign',
+    },
+    {
+      name: 'Kunal Bahl',
+      status: 'Hasn"t loggedin',
+      time: '',
+      post: 'Telecaller',
+      iconName: 'user',
+      provider: 'AntDesign',
+    },
+    {
+      name: 'Susheel, K',
+      status: 'Idle',
+      time: '13m 48s',
+      post: 'Sales Manager',
+      iconName: 'human-wheelchair',
+      provider: 'MaterialCommunityIcons',
+    },
+    {
+      name: 'Kumar',
+      status: 'Logged Out',
+      time: '10m 28s',
+      post: 'Territory Manager',
+      iconName: 'logout',
+      provider: 'AntDesign',
+    },
+    {
+      name: 'Kunal Bahl',
+      status: 'Hasn"t loggedin',
+      time: '',
+      post: 'Telecaller',
+      iconName: 'user',
+      provider: 'AntDesign',
+    },
+    {
+      name: 'Susheel, K',
+      status: 'Idle',
+      time: '13m 48s',
+      post: 'Sales Manager',
+      iconName: 'human-wheelchair',
+      provider: 'MaterialCommunityIcons',
+    },
   ];
 
-  const navigation = useNavigation();
+  // const navigation = useNavigation();
   return (
     <ScrollView contentContainerStyle={{flexGrow: 1}}>
       <LinearGradient
@@ -91,82 +164,103 @@ export default function RenoDemo() {
           padding: 15,
           //   marginHorizontal: 20,
         }}>
-        <View onTouchEnd={() => navigation.navigate('Home')}>
+        <View>
           <Feather name="arrow-left" size={30} color="white" />
         </View>
-        <Text style={{color: 'white', fontSize: 18, fontWeight: '700'}}>
+        <Text
+          style={{
+            color: 'white',
+            fontSize: 20,
+            fontFamily: font.SemiBold,
+          }}>
           Team Live Status
         </Text>
         <Ionicons name="people" size={30} color="white" />
       </LinearGradient>
-      {data.map((item, index) => {
-        return (
-          <View
-            style={{
-              flexDirection: 'row',
-              backgroundColor: 'white',
-              borderRadius: 8,
-              marginHorizontal: 10,
-              marginVertical: 7,
-              padding: 18,
-              elevation: 3,
-              justifyContent: 'space-between',
-              alignItems: 'center',
-            }}
-            key={index}>
-            <View style={{flexDirection: 'row', width: '65%'}}>
+      <View style={{marginBottom: 70}}>
+        {data.map((item, index) => {
+          return (
+            <View
+              style={{
+                flexDirection: 'row',
+                backgroundColor: 'white',
+                borderRadius: 8,
+                marginHorizontal: 10,
+                marginVertical: 7,
+                padding: 18,
+                elevation: 3,
+                justifyContent: 'space-between',
+                alignItems: 'center',
+              }}
+              key={index}>
+              <View style={{flexDirection: 'row', width: '65%'}}>
+                <View
+                  style={{
+                    marginRight: 12,
+                    alignItems: 'center',
+                    justifyContent: 'center',
+                  }}>
+                  {item.provider == 'AntDesign' ? (
+                    <AntDesign name={item.iconName} size={30} color="#FA8661" />
+                  ) : (
+                    <MaterialCommunityIcons
+                      name={item.iconName}
+                      size={30}
+                      color="#FA8661"
+                    />
+                  )}
+                </View>
+                <View>
+                  <Text
+                    numberOfLines={1}
+                    style={{
+                      color: 'black',
+                      // fontWeight: '500',
+                      fontFamily: font.SemiBold,
+                      fontSize: 16,
+                      marginBottom: 5,
+                    }}>
+                    {item?.name}
+                  </Text>
+                  <Text
+                    style={{
+                      color: 'grey',
+                      fontSize: 14,
+                      fontFamily: font.Regular,
+                    }}>
+                    {item?.post}
+                  </Text>
+                </View>
+              </View>
               <View
                 style={{
-                  marginRight: 12,
-                  alignItems: 'center',
-                  justifyContent: 'center',
+                  width: '35%',
+                  alignItems: 'flex-end',
                 }}>
-                {item.provider == 'AntDesign' ? (
-                  <AntDesign name={item.iconName} size={30} color="#FA8661" />
-                ) : (
-                  <MaterialCommunityIcons
-                    name={item.iconName}
-                    size={30}
-                    color="#FA8661"
-                  />
-                )}
-              </View>
-              <View>
                 <Text
                   numberOfLines={1}
                   style={{
-                    color: 'black',
-                    fontWeight: '500',
-                    fontSize: 16,
+                    color: 'grey',
+                    fontSize: 14,
+                    // fontWeight: '700',
+                    fontFamily: font.Bold,
                     marginBottom: 5,
                   }}>
-                  {item?.name}
+                  {item.status}
                 </Text>
-                <Text style={{color: 'grey', fontSize: 14}}>{item?.post}</Text>
+                <Text
+                  style={{
+                    color: 'black',
+                    fontFamily: font.Bold,
+                    fontSize: 14,
+                  }}>
+                  {item.time}
+                </Text>
               </View>
             </View>
-            <View
-              style={{
-                width: '35%',
-                alignItems: 'flex-end',
-              }}>
-              <Text
-                numberOfLines={1}
-                style={{
-                  color: 'grey',
-                  fontSize: 14,
-                  fontWeight: '700',
-                  marginBottom: 5,
-                }}>
-                {item.status}
-              </Text>
-              <Text style={{color: 'black', fontWeight: '700', fontSize: 14}}>
-                {item.time}
-              </Text>
-            </View>
-          </View>
-        );
-      })}
+          );
+        })}
+      </View>
     </ScrollView>
   );
 }
